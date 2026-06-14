@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건의사항 - 택시 파티원 구하기 773</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="suggestion.css">
+</head>
+<body>
+    <div class="sg-wrapper">
+        <div class="sg-header">
+            <button class="back-btn" onclick="location.href='index.html'">◀ 달력</button>
+            <span class="sg-title">건의사항</span>
+        </div>
+
+        <div class="sg-list" id="sg-list">
+            <div class="sg-loading" id="sg-loading">불러오는 중...</div>
+        </div>
+
+        <div class="sg-input-bar">
+            <textarea id="sg-input" class="sg-input" placeholder="건의 내용을 입력하세요..." maxlength="1000" rows="1"></textarea>
+            <button class="send-btn" onclick="submitSuggestion()">제출</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="suggestion.js"></script>
+</body>
+</html>

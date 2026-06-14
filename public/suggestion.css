@@ -1,0 +1,242 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sg-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+.sg-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #4f46e5;
+    color: white;
+    flex-shrink: 0;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.sg-title {
+    font-size: 1rem;
+    font-weight: 700;
+    flex: 1;
+}
+
+.admin-btn {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.admin-btn.active {
+    background: rgba(255,255,255,0.35);
+    font-weight: 700;
+}
+
+.admin-panel {
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #fafaff;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.admin-key-input {
+    flex: 1;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    outline: none;
+}
+
+.admin-key-input:focus { border-color: #4f46e5; }
+
+.admin-confirm-btn {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.sg-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f8f9ff;
+}
+
+.sg-loading, .sg-empty {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    margin: auto;
+}
+
+.sg-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sg-new { animation: fadeUp 0.25s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.sg-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sg-username {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+.sg-date {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.sg-text {
+    font-size: 0.92rem;
+    color: #111827;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.sg-answer {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.answer-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #16a34a;
+}
+
+.answer-text {
+    font-size: 0.9rem;
+    color: #166534;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.answer-input-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.answer-textarea {
+    flex: 1;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    line-height: 1.4;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.answer-textarea:focus { border-color: #4f46e5; }
+
+.answer-submit-btn {
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    align-self: flex-end;
+}
+
+.sg-input-bar {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #e5e7eb;
+    background: white;
+    flex-shrink: 0;
+}
+
+.sg-input {
+    flex: 1;
+    border: 1.5px solid #d1d5db;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 0.92rem;
+    outline: none;
+    resize: none;
+    line-height: 1.4;
+    max-height: 120px;
+    overflow-y: auto;
+    font-family: inherit;
+}
+
+.sg-input:focus { border-color: #4f46e5; }
+
+.send-btn {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+}
