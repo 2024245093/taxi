@@ -1,7 +1,7 @@
 const express    = require('express');
 const session    = require('express-session');
 const pgSession  = require('connect-pg-simple')(session);
-const bcrypt     = require('bcrypt');
+const bcrypt     = require('bcryptjs');
 const argon2     = require('argon2');
 const { Pool }   = require('pg');
 const path       = require('path');
@@ -697,12 +697,17 @@ io.on('connection', async (socket) => {
   });
 });
 
-initDb().then(() => {
+if (!process.env.DATABASE_URL) {
+  console.warn('No DATABASE_URL set; skipping DB init.');
   httpServer.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
-}).catch(err => {
-  console.error('Failed to initialize database:', err);
-  process.exit(1);
-});
+} else {
+  initDb().then(() => {
+    httpServer.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
+  }).catch(err => {
+    console.error('Failed to initialize database:', err);
+    process.exit(1);
+  });
+}
 
 
 
