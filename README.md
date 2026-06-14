@@ -81,4 +81,41 @@ heroku open
 - 포트 관련 문제는 서버가 이미 `process.env.PORT`를 사용하므로 보통 발생하지 않습니다.
 
 원하시면 제가 Heroku 앱 생성, Postgres 프로비저닝, 그리고 첫 배포까지 CLI로 직접 수행해드릴게요. 진행할까요?
+앱 이름을 `taxi-mate-finder`로 지정하려면 아래 명령을 사용하세요. (앱 이름은 전역 고유이므로 이미 사용 중이면 에러가 납니다 — 그 경우 `taxi-mate-finder-###` 같은 이름을 사용하세요.)
+
+Heroku 설치 및 로그인 예시:
+
+```bash
+# Heroku CLI 설치 (Ubuntu 예시)
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
+# 로그인 (웹 브라우저 방식 또는 -i로 CLI 방식)
+heroku login
+# 또는
+heroku login -i
+```
+
+`taxi-mate-finder` 앱 생성 및 배포 예시:
+
+```bash
+# Heroku에 로그인 후
+heroku create taxi-mate-finder || heroku create taxi-mate-finder-$(date +%s | sha256sum | cut -c1-6)
+
+# Postgres 애드온 추가
+heroku addons:create heroku-postgresql:hobby-dev --app taxi-mate-finder
+
+# (옵션) 환경변수 설정
+heroku config:set NODE_ENV=production --app taxi-mate-finder
+
+# Git을 통해 배포 (브랜치가 main인 경우)
+git push https://git.heroku.com/taxi-mate-finder.git main
+
+# 로그 확인
+heroku logs --tail --app taxi-mate-finder
+
+# 브라우저 열기
+heroku open --app taxi-mate-finder
+```
+
+저에게 여기에서 Heroku CLI 설치와 앱 생성/배포를 직접 진행하길 원하시면 알려주세요. 이 환경에서 `heroku login`은 상호작용(웹 브라우저 또는 이메일/비밀번호 입력)이 필요합니다.
 
