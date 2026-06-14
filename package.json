@@ -16,6 +16,6 @@
     "express-session": "^1.17.3",
     "connect-pg-simple": "^8.0.0",
     "bcrypt": "^5.1.0",
-    "argon2": "^0.30.4"
+    "argon2": "^0.30.3"
   }
 }
