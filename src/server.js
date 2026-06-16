@@ -697,18 +697,27 @@ io.on('connection', async (socket) => {
   });
 });
 
-if (!process.env.DATABASE_URL) {
-  console.warn('No DATABASE_URL set; skipping DB init.');
-  httpServer.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
-} else {
-  initDb().then(() => {
-    httpServer.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
-  }).catch(err => {
-    console.error('Failed to initialize database:', err);
-    process.exit(1);
-  });
+// 라인 700-710 수정
+const dbUrl = process.env.DATABASE_URL;
+if (!dbUrl) {
+  console.warn('⚠️ DATABASE_URL not set!');
+  console.warn('Set this env var in your platform:', dbUrl);
 }
 
+if (dbUrl) {
+  initDb().then(() => {
+    httpServer.listen(PORT, '0.0.0.0', () => 
+      console.log(`✅ Server running on port ${PORT} with DB`)
+    );
+  }).catch(err => {
+    console.error('❌ DB init failed:', err.message);
+    process.exit(1);
+  });
+} else {
+  httpServer.listen(PORT, '0.0.0.0', () => 
+    console.log(`⚠️ Server running on port ${PORT} WITHOUT DB`)
+  );
+}
 
 
 //보안을 위한 대책들
