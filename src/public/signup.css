@@ -1,0 +1,41 @@
+#main_title, #caution_msg {
+  text-align: center;
+}
+
+#id_div {
+  position: relative;
+  width: 220px;
+  margin: 10px auto;
+}
+
+#signupId {
+  display: block;
+  padding: 10px;
+  width: 220px;
+  box-sizing: border-box;
+}
+
+#if_hq_reference {
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#signupPw, #signupPhone, #signupCaptain, #signupBtn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 220px;
+}
+
+#comment_msg {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: -5px
+}
