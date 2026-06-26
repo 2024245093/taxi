@@ -541,14 +541,14 @@ document.addEventListener("DOMContentLoaded", async function() {
     populateTimeSelect();
     renderCalendar();
     try {
-        // const res = await fetch('/api/me');
-        // if (!res.ok) {
-        //     alert("로그인해야합니다 !");
-        //     location.href = "login.html";
-        //     return;
-        // }
-        // const me = await res.json();
-        // document.getElementById('user_id').textContent = me.username;
+        const res = await fetch('/api/me');
+        if (!res.ok) {
+            alert("로그인해야합니다 !");
+            location.href = "login.html";
+            return;
+        }
+        const me = await res.json();
+        document.getElementById('user_id').textContent = me.username;
         await loadReservations();
         await refreshCalendar();
         await checkPartyComplete();
