@@ -2,7 +2,7 @@ const calendarEl = document.getElementById("calendar");
 const titleEl = document.getElementById("monthTitle");
 
 const _PURPOSE_MAP = { '출타': 'out', '복귀': 'back' };
-const _STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong' };
+const _STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong', '여주터미널': 'yeoju-terminal' };
 function getRoomKey(date, purpose, station, time) {
     const p = _PURPOSE_MAP[purpose] || purpose;
     const s = _STATION_MAP[station] || station;
@@ -541,14 +541,14 @@ document.addEventListener("DOMContentLoaded", async function() {
     populateTimeSelect();
     renderCalendar();
     try {
-        const res = await fetch('/api/me');
-        if (!res.ok) {
-            alert("로그인해야합니다 !");
-            location.href = "login.html";
-            return;
-        }
-        const me = await res.json();
-        document.getElementById('user_id').textContent = me.username;
+        // const res = await fetch('/api/me');
+        // if (!res.ok) {
+        //     alert("로그인해야합니다 !");
+        //     location.href = "login.html";
+        //     return;
+        // }
+        // const me = await res.json();
+        // document.getElementById('user_id').textContent = me.username;
         await loadReservations();
         await refreshCalendar();
         await checkPartyComplete();
