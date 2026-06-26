@@ -1,0 +1,87 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    min-height: 100dvh;
+}
+
+.patchnote-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    min-height: 100dvh;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.patchnote-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #4f46e5;
+    color: white;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.patchnote-body {
+    flex: 1;
+    padding: 20px 14px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.patchnote-divider {
+    border-top: 1px solid #f3f4f6;
+    padding: 16px;
+}
+
+.patchnote-divider h4 {
+    margin: 0 0 8px;
+}
+
+.patchnote-divider p,
+.patchnote-divider ul {
+    margin: 0;
+}
+
+.patchnote-divider ul {
+    padding-left: 20px;
+}
+
+.patchnote-divider li + li {
+    margin-top: 4px;
+}
+
+#title-patchnote {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+.item-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4f46e5;
+    flex-shrink: 0;
+    margin-top: 7px;
+}
