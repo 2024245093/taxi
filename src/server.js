@@ -126,7 +126,7 @@ function requireAuth(req, res, next) {
 }
 
 const PURPOSE_MAP = { '출타': 'out', '복귀': 'back' };
-const STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong', '여주터미널': 'yeoju-terminal' };
+const STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong', '여주터미널': 'yeojuterminal' }; // *키 값에 - 넣으면 안됨
 
 function buildRoomKey(date, purpose, station, time, counter) {
   const p = PURPOSE_MAP[purpose] || purpose;
