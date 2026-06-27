@@ -126,7 +126,7 @@ function requireAuth(req, res, next) {
 }
 
 const PURPOSE_MAP = { '출타': 'out', '복귀': 'back' };
-const STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong' };
+const STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong', '여주터미널': 'yeoju-terminal' };
 
 function buildRoomKey(date, purpose, station, time, counter) {
   const p = PURPOSE_MAP[purpose] || purpose;
@@ -718,36 +718,3 @@ if (dbUrl) {
     console.log(`⚠️ Server running on port ${PORT} WITHOUT DB`)
   );
 }
-
-
-//보안을 위한 대책들
-//1. 회원가입 시 중대장급 직속상관 관등성명 요구하기 (직속상관 관등성명은 해시값으로 데이터베이스에 저장, 비밀번호처럼 복호화 불가능함)
-//2. 중대장급 계정 만들어서 회원가입 요청을 직접 검증하고 승인하기
-
-
-// signup.js 수정
-//회원가입 시도가 10회 이상 실패하면 1시간 동안 회원가입을 할 수 없도록 하는 코드 추가 (아이피 제한 등)
-//출발/복귀에 따라 예약 시간대 구분, 조정
-
-
-
-/**
- * d228b-07ed5
- * 1fe6a-a792f
- * ecef1-bd937
- * 30ab3-75ce9
- * ab64b-beee0
- * d99ae-cfedd
- * 5e77f-86ad8
- * bbcfd-fe1b7
- * 06b24-61726
- * 95215-b79ed
- * 61db8-efc49
- * afb62-c92f7
- * 99995-7f499
- * 9478e-37f46
- * bd950-62b11
- * 36b58-6212d
- *
- * https://techkamar.medium.com/avoiding-downtime-in-render-com-free-tier-website-with-this-free-trick-09332c70e277
- */
