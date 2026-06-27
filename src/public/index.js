@@ -2,7 +2,7 @@ const calendarEl = document.getElementById("calendar");
 const titleEl = document.getElementById("monthTitle");
 
 const _PURPOSE_MAP = { '출타': 'out', '복귀': 'back' };
-const _STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong', '여주터미널': 'yeoju-terminal' };
+const _STATION_MAP = { '용문역': 'yongmun', '여주역': 'yeoju', '양평역': 'yangpyeong', '여주터미널': 'yeojuterminal' }; //#키 값에 - 넣으면 안됨
 function getRoomKey(date, purpose, station, time) {
     const p = _PURPOSE_MAP[purpose] || purpose;
     const s = _STATION_MAP[station] || station;
